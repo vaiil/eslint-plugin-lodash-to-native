@@ -28,8 +28,7 @@ ruleTester.run('map', rule, {
     {
       code: '_.map([])',
       errors: [{
-        message: 'Fill me in.',
-        type: 'Me too'
+        messageId: 'useNativeMapMethod'
       }]
     }
   ]
