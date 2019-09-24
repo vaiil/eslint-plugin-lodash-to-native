@@ -1,0 +1,26 @@
+{
+  "name": "eslint-plugin-lodash-to-native",
+  "version": "0.0.0",
+  "description": "Lodash to ES6",
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin"
+  ],
+  "author": "Aleksey Orlov",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests --recursive"
+  },
+  "dependencies": {
+    "requireindex": "~1.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.4.0",
+    "mocha": "^6.2.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "license": "ISC"
+}
