@@ -36,7 +36,7 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
     "rules": {
-        "lodash-to-native/rule-name": 2
+        "lodash-to-native/map": 2
     }
 }
 ```
@@ -49,3 +49,13 @@ Then configure the rules you want to use under the rules section.
 
 
 
+# Комментарии 
+
+ В работе использовал [generator-eslint](https://github.com/eslint/generator-eslint) для создания каркаса приложения 
+ (затем еще обновил зависимости).
+ 
+ Также были полезны следующие сервисы:
+ * [esquery online](https://estools.github.io/esquery/) для составления верного селектора
+ * [ast explorer](https://astexplorer.net/) для просмотра ast дерева
+ 
+ 

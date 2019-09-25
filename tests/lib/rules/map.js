@@ -20,8 +20,9 @@ const ruleTester = new RuleTester()
 ruleTester.run('map', rule, {
 
   valid: [
-
-    // give me some code that won't trigger a warning
+    {
+      code: 'Array.isArray(a) ? a.map(f) : _.map(a, f)'
+    }
   ],
 
   invalid: [
