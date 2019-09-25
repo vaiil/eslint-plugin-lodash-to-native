@@ -32,6 +32,13 @@ ruleTester.run('map', rule, {
         messageId: 'useNativeMapMethod'
       }],
       output: '[].map(function(){})'
+    },
+    {
+      code: '_.map(a, b)',
+      errors: [{
+        messageId: 'useNativeMapMethod'
+      }],
+      output: '(Array.isArray(a) ? a.map(b) : _.map(a, b))'
     }
   ]
 })
