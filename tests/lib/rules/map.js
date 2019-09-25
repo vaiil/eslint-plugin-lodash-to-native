@@ -26,10 +26,11 @@ ruleTester.run('map', rule, {
 
   invalid: [
     {
-      code: '_.map([])',
+      code: '_.map([], function(){})',
       errors: [{
         messageId: 'useNativeMapMethod'
-      }]
+      }],
+      output: '[].map(function(){})'
     }
   ]
 })
