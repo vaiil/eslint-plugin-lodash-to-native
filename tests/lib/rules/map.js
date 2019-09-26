@@ -22,6 +22,18 @@ ruleTester.run('map', rule, {
   valid: [
     {
       code: 'Array.isArray(a) ? a.map(f) : _.map(a, f)'
+    },
+    {
+      code: 'if(!Array.isArray(a)){_.map(a, f)}'
+    },
+    {
+      code: 'a instanceof Array ? a.map(f) : _.map(a, f)'
+    },
+    {
+      code: 'if(!(a instanceof Array)){ _.map(a, f)}'
+    },
+    {
+      code: '_.map({}, f)'
     }
   ],
 
@@ -32,6 +44,13 @@ ruleTester.run('map', rule, {
         messageId: 'useNativeMapMethod'
       }],
       output: '[].map(function(){})'
+    },
+    {
+      code: 'if(a instanceof Array){_.map(a, function(){})}',
+      errors: [{
+        messageId: 'useNativeMapMethod'
+      }],
+      output: 'if(a instanceof Array){a.map(function(){})}'
     },
     {
       code: '_.map(a, b)',
