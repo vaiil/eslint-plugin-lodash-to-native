@@ -1,22 +1,13 @@
 # eslint-plugin-lodash-to-native
 
-Lodash to ES6
+Lodash to native
 
-## Installation
+## Установка
 
-You'll first need to install [ESLint](http://eslint.org):
-
+```shell script
+npm i eslint --save-dev
+npm install vaiil/eslint-plugin-lodash-to-native --save-dev
 ```
-$ npm i eslint --save-dev
-```
-
-Next, install `eslint-plugin-lodash-to-native`:
-
-```
-$ npm install eslint-plugin-lodash-to-native --save-dev
-```
-
-**Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `eslint-plugin-lodash-to-native` globally.
 
 ## Usage
 
@@ -41,15 +32,24 @@ Then configure the rules you want to use under the rules section.
 }
 ```
 
-## Supported Rules
+## Как работают правила
+В случае передачи явного литерала массива будет произведена метода на метод map: \
+`_.map([], f)` => `[].map(f)`
 
-* Fill in provided rules here
+В случае передачи переменной вызов будет обернут в проверку:
+`_.map(a, f)` => `(Array.isArray(a) ? a.map(f) : _.map(a, f))`
+
+Если выше вызова `_.map` есть одна из следующих проверок: 
+* `Array.isArray`
+* `variable instanceof Array`  
+то переменная будет воспринята как массив и замена будет произведена без проверки.
+В случае отрицательной проверки переменная будет определяться как не-массив, 
+и линтер не будет возвращать предупреждение.  
 
 
 
 
-
-# Комментарии 
+## Комментарии 
 
  В работе использовал [generator-eslint](https://github.com/eslint/generator-eslint) для создания каркаса приложения 
  (затем еще обновил зависимости).
