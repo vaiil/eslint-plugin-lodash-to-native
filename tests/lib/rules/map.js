@@ -43,7 +43,7 @@ ruleTester.run('map', rule, {
       errors: [{
         messageId: 'useNativeMapMethod'
       }],
-      output: '[].map(function(){})'
+      output: ';[].map(function(){})'
     },
     {
       code: 'if(a instanceof Array){_.map(a, function(){})}',
