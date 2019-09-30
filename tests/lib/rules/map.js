@@ -43,7 +43,14 @@ ruleTester.run('map', rule, {
       errors: [{
         messageId: 'useNativeMapMethod'
       }],
-      output: '([].map(function(){}))'
+      output: '[].map(function(){})'
+    },
+    {
+      code: 'f()\n_.map([], function(){})',
+      errors: [{
+        messageId: 'useNativeMapMethod'
+      }],
+      output: 'f()\n;[].map(function(){})'
     },
     {
       code: 'var a = _.map([], function(){})',
